@@ -37,7 +37,7 @@ function ensureDatabase(): StoreDatabase {
   }
   const raw = fs.readFileSync(DATA_FILE, 'utf-8');
   const parsed = JSON.parse(raw) as StoreDatabase;
-  if (parsed.dataVersion !== CURRENT_DATA_VERSION) {
+    if (parsed.dataVersion !== CURRENT_DATA_VERSION || (parsed.stores?.length ?? 0) === 0) {
     const upgraded: StoreDatabase = {
       dataVersion: CURRENT_DATA_VERSION,
       stores: INITIAL_STORES,
@@ -47,7 +47,7 @@ function ensureDatabase(): StoreDatabase {
     return upgraded;
   }
   return parsed;
-}
+ }
 
 function saveDatabase(db: StoreDatabase): void {
   if (!fs.existsSync(DATA_DIR)) {
