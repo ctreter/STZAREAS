@@ -2,7 +2,7 @@
 // Função serverless da Vercel que devolve a base de lojas.
 // Crie a pasta /api na raiz do projeto e cole este arquivo lá.
 
-import { INITIAL_STORES } from '../src/data/initialStores';
+import { INITIAL_STORES } from '../src/data/stores.json';
 
 export default function handler(
   req: { method: string },
